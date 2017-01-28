@@ -31,7 +31,7 @@ Pada tutorial kali ini akan dijelaskan langkah membuat dan mengirimkan HTTP Requ
 
 Step 1: Install Postman
 ---
-Postman merupakan ekstensi Chrome browser.
+Postman dapat diinstall sebagai ekstensi Chrome browser.
 
 Download di: <https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop>
 
@@ -43,7 +43,7 @@ Step 2: Build HTTP Request
    ![_config.yml]({{ site.baseurl }}/images/Making-your-first-HTTP-Request/postman1.png)
 
 
-2. Pilih HTTP Method yang diinginkan, dari berbagai pilihan yang ada (misalnya: `GET`, `POST`, `PUT`). Dalam contoh ini, pilh `GET`
+2. Pilih HTTP Method yang diinginkan, dari berbagai pilihan yang ada (misalnya: `GET`, `POST`, `PUT`). Dalam contoh ini, pilh `POST`
 
    ![_config.yml]({{ site.baseurl }}/images/Making-your-first-HTTP-Request/postman2.png)
 
@@ -74,7 +74,7 @@ Step 3: Send HTTP Request
 
 Conclusion
 ---
-Membuat HTTP Request merupakan skill dasar yang seharusnya dimiliki oleh semua umat mahasiswa Fasilkom.
+Membuat HTTP Request sejatinya merupakan skill dasar yang seharusnya dimiliki oleh semua umat mahasiswa Fasilkom.
 Pada contoh di atas, tipe data yang dikirimkan adalah `form-data`. Bagaimana kalau tipe data yang diinginkan 
 harus mengikuti format `JSON`?
    
