@@ -39,7 +39,9 @@ Step 2: Build HTTP Request
 ---
 
 1. Isi form `Enter requests URL` dengan destination URL, yaitu: `http://ristek.cs.ui.ac.id/_netsos/sample-endpoint`
- 
+
+   ![_config.yml]({{ site.baseurl }}/images/Making-your-first-HTTP-Request/postman1.png)
+
 
 2. Pilih HTTP Method yang diinginkan, dari berbagai pilihan yang ada (misalnya: `GET`, `POST`, `PUT`). Dalam contoh ini, pilh `GET`
 
