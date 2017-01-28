@@ -10,13 +10,13 @@ Namun penulis menyadari kurangnya kemampuan menulis dengan baik.
 Jika anda sudah mengerti cara membuat HTTP Request sebelumnya, maka membaca tutorial ini adalah sebuah 
 kesia-sia-an, silahkan lanjutkan mengerjakan misi.
 
-Untuk penjelasan yang lebih jelas, silahkan merujuk ke: [https://www.getpostman.com/docs/requests]
+Untuk penjelasan yang lebih jelas, silahkan merujuk ke: <https://www.getpostman.com/docs/requests>
 
 Background
 ---
 Akan dijelaskan membuat sebuah HTTP Request sederhana, dengan spesifikasi sebagai berikut:
 
-- Destination URL: [http://ristek.cs.ui.ac.id/_netsos/sample-endpoint]
+- Destination URL: <http://ristek.cs.ui.ac.id/_netsos/sample-endpoint>
 - method: POST
 - POST Form data:
   - `nama`: `Adam`
@@ -33,13 +33,13 @@ Step 1: Install Postman
 ---
 Postman merupakan ekstensi Chrome browser.
 
-Download di: [https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop]
+Download di: <https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop>
 
 Step 2: Build HTTP Request
 ---
 
-1. Isi form `Enter requests URL` dengan destination URL, yaitu: [http://ristek.cs.ui.ac.id/_netsos/sample-endpoint]
-   
+1. Isi form `Enter requests URL` dengan destination URL, yaitu: `http://ristek.cs.ui.ac.id/_netsos/sample-endpoint`
+ 
 
 2. Pilih HTTP Method yang diinginkan, dari berbagai pilihan yang ada (misalnya: `GET`, `POST`, `PUT`). Dalam contoh ini, pilh `GET`
 
