@@ -4,12 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Am a student majoring in Computer Science. I am deeply interested in technology and love learning new things.
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[adamyordan@gmail.com](mailto:adamyordan@gmail.com)
