@@ -45,12 +45,18 @@ Step 2: Build HTTP Request
 
 2. Pilih HTTP Method yang diinginkan, dari berbagai pilihan yang ada (misalnya: `GET`, `POST`, `PUT`). Dalam contoh ini, pilh `GET`
 
+   ![_config.yml]({{ site.baseurl }}/images/Making-your-first-HTTP-Request/postman2.png)
+
 
 3. Pilih tab `Headers`. Kemudian masukkan header sesuai contoh.
+
+   ![_config.yml]({{ site.baseurl }}/images/Making-your-first-HTTP-Request/postman3.png)
 
 
 4. Pilih tab `Body`. Kemudian masukkan pilih tipe data yang ingin dikirimkan (misalnya: `form-data`, `raw`, `binary`).
    Dalam contoh ini, dipilih `form-data` sesuai spesifikasi sebelumnya. Kemudian masukkan nilai yang diinginkan.
+
+   ![_config.yml]({{ site.baseurl }}/images/Making-your-first-HTTP-Request/postman4.png)
 
 
 Step 3: Send HTTP Request
@@ -62,6 +68,8 @@ Step 3: Send HTTP Request
 
    Dalam contoh ini, response yang diberikan adalah sebuah text html error 404 Not Found 
    (dikarenakan URL tujuan memang tidak di handle oleh server RISTEK ._. )
+
+   ![_config.yml]({{ site.baseurl }}/images/Making-your-first-HTTP-Request/postman5.png)
 
 
 Conclusion
