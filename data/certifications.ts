@@ -2,9 +2,8 @@ export interface Certification {
   /** Acronym, e.g. "OSCP". Omitted for credentials that do not have one. */
   code?: string;
   /**
-   * Display name. The official title is the issuer followed by this name —
-   * "OffSec Certified Professional (OSCP)" — the issuer is shown once in the
-   * section heading instead of on every row.
+   * Name without the issuer. Rendered as "<issuer> <name>", which is the
+   * official title — e.g. OffSec + "Certified Professional".
    */
   name: string;
   issuer: string;
@@ -12,6 +11,8 @@ export interface Certification {
   issued: string;
   /** Verification link. */
   url: string;
+  /** Pinned to the top of the list, ahead of the date ordering. */
+  featured?: boolean;
 }
 
 export const certifications: Certification[] = [
@@ -35,6 +36,7 @@ export const certifications: Certification[] = [
     issuer: "OffSec",
     issued: "2023-04-07",
     url: "https://www.credential.net/cd3ff77b-ddf9-4765-858e-519f545b3583",
+    featured: true,
   },
   {
     code: "OSWE",
@@ -63,12 +65,6 @@ export const certifications: Certification[] = [
     issuer: "OffSec",
     issued: "2022-09-15",
     url: "https://www.credential.net/b6b6edb8-16b0-4aec-964c-9eecf2b6379c",
-  },
-  {
-    name: "Network Penetration Testing Essentials",
-    issuer: "OffSec",
-    issued: "2022-09-06",
-    url: "https://www.credential.net/bac9264f-4d98-47d4-bc1d-9a73c3d40e35",
   },
   {
     code: "OSCP",
