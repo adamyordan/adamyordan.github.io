@@ -33,14 +33,9 @@ export function CertificationList() {
   );
   return (
     <section aria-labelledby="certifications">
-      <div className="flex items-baseline justify-between gap-4">
-        <h2 id="certifications" className="text-sm font-medium">
-          Certifications
-        </h2>
-        <span className="font-mono text-xs text-muted-foreground">
-          {sorted.length}
-        </span>
-      </div>
+      <h2 id="certifications" className="text-sm font-medium">
+        Certifications
+      </h2>
 
       <Separator className="mt-3" />
 

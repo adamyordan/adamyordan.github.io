@@ -6,8 +6,7 @@ export interface ProfileLink {
 export const profile = {
   name: "Adam Jordan",
   handle: "adamyordan",
-  // TODO: replace with your own wording.
-  bio: "Security researcher and software engineer.",
+  bio: "Security researcher. I find and report vulnerabilities for a living 🐞",
   siteUrl: "https://adamyordan.github.io",
   links: [
     { label: "GitHub", href: "https://github.com/adamyordan" },

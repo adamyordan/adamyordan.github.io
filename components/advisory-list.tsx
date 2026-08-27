@@ -142,14 +142,9 @@ export function AdvisoryList() {
 
   return (
     <section aria-labelledby="advisories">
-      <div className="flex items-baseline justify-between gap-4">
-        <h2 id="advisories" className="text-sm font-medium">
-          Security advisories
-        </h2>
-        <span className="font-mono text-xs text-muted-foreground">
-          {published.length}
-        </span>
-      </div>
+      <h2 id="advisories" className="text-sm font-medium">
+        Published Security Advisories
+      </h2>
 
       <Separator className="mt-3" />
 
