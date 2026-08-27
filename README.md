@@ -11,15 +11,27 @@ pnpm install
 pnpm dev
 ```
 
-## Adding an advisory
+## Editing the content
 
-Everything on the page comes from two files — no components need editing.
+Everything on the page comes from `data/` — no components need editing.
 
 - `data/cves.ts` — the advisory list. Copy an existing entry and fill it in.
   Order does not matter; the page sorts newest first and groups by year.
-  Omit `cve` when no CVE has been assigned and the GHSA id is shown instead.
-  Set `coCredited: true` when credited alongside other reporters.
+  Omit `cve` when none has been assigned and the GHSA id is shown instead;
+  set `cvePending: true` to show the "CVE pending" badge, `coCredited: true`
+  when credited alongside other reporters, and `embargoed: true` to keep an
+  entry out of the page entirely until it is disclosed.
+- `data/awards.ts` — competition results, with an optional photo.
+- `data/certifications.ts` — certifications, newest first, each linking to its
+  verification page.
 - `data/profile.ts` — name, bio, and the links in the header.
+
+### Award photos
+
+`scripts/optimize-award-image.sh <source> <slug> [ffmpeg-filter]` crops and
+compresses a photo into `public/awards/` and prints the width/height to paste
+into the entry's `photo` block. Target 16:9 — the grid renders each photo in an
+`aspect-video` box.
 
 ## Deploy
 

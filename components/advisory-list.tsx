@@ -47,7 +47,6 @@ function AdvisoryBody({ advisory }: { advisory: Advisory }) {
     advisory.pkg,
     advisory.ecosystem,
     formatDate(advisory.published),
-    advisory.cvePending ? "CVE pending" : undefined,
     advisory.coCredited ? "co-credited" : undefined,
   ].filter(Boolean);
 
@@ -71,6 +70,14 @@ function AdvisoryBody({ advisory }: { advisory: Advisory }) {
             />
             {advisory.severity}
             {advisory.cvss !== undefined && ` ${advisory.cvss.toFixed(1)}`}
+          </Badge>
+        )}
+        {advisory.cvePending && (
+          <Badge
+            variant="outline"
+            className="border-dashed px-1.5 py-0 text-[0.7rem] font-normal text-muted-foreground"
+          >
+            CVE pending
           </Badge>
         )}
       </div>
