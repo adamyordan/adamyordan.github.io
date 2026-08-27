@@ -21,8 +21,10 @@ export interface Advisory {
   url?: string;
   /** True when credited alongside other reporters. */
   coCredited?: boolean;
-  /** True while the advisory details are not public yet. */
-  pending?: boolean;
+  /** Advisory is public but no CVE has been assigned yet. */
+  cvePending?: boolean;
+  /** Still under embargo — kept here for the record, but not rendered. */
+  embargoed?: boolean;
 }
 
 /**
@@ -33,10 +35,64 @@ export interface Advisory {
  */
 export const advisories: Advisory[] = [
   {
+    ghsa: "GHSA-rhrf-7x22-x2rj",
+    title: "Broken access control in asset model file attachments",
+    product: "Snipe-IT",
+    pkg: "snipe/snipe-it",
+    ecosystem: "Composer",
+    severity: "critical",
+    cvss: 9.1,
+    cwe: ["CWE-284", "CWE-863"],
+    published: "2026-08-24",
+    url: "https://github.com/grokability/snipe-it/security/advisories/GHSA-rhrf-7x22-x2rj",
+    cvePending: true,
+  },
+  {
+    cve: "CVE-2026-63293",
+    ghsa: "GHSA-j825-cg34-5fr5",
+    title:
+      "metadata.yaml symlink in a crafted image gives arbitrary host file read/write as root",
+    product: "LXD",
+    pkg: "canonical/lxd",
+    severity: "critical",
+    cvss: 9.9,
+    published: "2026-07-31",
+    url: "https://github.com/canonical/lxd/security/advisories/GHSA-j825-cg34-5fr5",
+  },
+  {
+    cve: "CVE-2026-63343",
+    ghsa: "GHSA-fmjx-5j3g-997p",
+    title:
+      "metadata.yaml symlink in a crafted image gives arbitrary host file read/write as root",
+    product: "Incus",
+    pkg: "github.com/lxc/incus",
+    ecosystem: "Go",
+    severity: "critical",
+    cvss: 9.9,
+    cwe: ["CWE-73"],
+    published: "2026-07-30",
+    url: "https://github.com/lxc/incus/security/advisories/GHSA-fmjx-5j3g-997p",
+  },
+  // Under embargo: these advisories are still in review and 404 for the public.
+  // Flip `embargoed` to false (and fill in the details) once they are published.
+  {
+    ghsa: "GHSA-79gx-h528-j9xf",
+    product: "Froxlor",
+    published: "2026",
+    url: "https://github.com/froxlor/froxlor/security/advisories/GHSA-79gx-h528-j9xf",
+    embargoed: true,
+  },
+  {
+    ghsa: "GHSA-4333-x9p4-8xj7",
+    product: "YesWiki",
+    published: "2026",
+    url: "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-4333-x9p4-8xj7",
+    embargoed: true,
+  },
+  {
     cve: "CVE-2026-79753",
     product: "Nuclio",
     published: "2026",
-    pending: true,
   },
   {
     cve: "CVE-2026-69222",

@@ -47,6 +47,7 @@ function AdvisoryBody({ advisory }: { advisory: Advisory }) {
     advisory.pkg,
     advisory.ecosystem,
     formatDate(advisory.published),
+    advisory.cvePending ? "CVE pending" : undefined,
     advisory.coCredited ? "co-credited" : undefined,
   ].filter(Boolean);
 
@@ -128,7 +129,9 @@ function AdvisoryRow({ advisory }: { advisory: Advisory }) {
 }
 
 export function AdvisoryList() {
-  const years = groupByYear(advisories);
+  // Embargoed advisories stay out of the page until they are disclosed.
+  const published = advisories.filter((advisory) => !advisory.embargoed);
+  const years = groupByYear(published);
 
   return (
     <section aria-labelledby="advisories">
@@ -137,7 +140,7 @@ export function AdvisoryList() {
           Security advisories
         </h2>
         <span className="font-mono text-xs text-muted-foreground">
-          {advisories.length}
+          {published.length}
         </span>
       </div>
 
