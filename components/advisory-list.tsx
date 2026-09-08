@@ -1,7 +1,15 @@
+"use client";
+
+import { useRef, useState } from "react";
+
 import { advisories, type Advisory, type Severity } from "@/data/cves";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+
+/** Advisories shown per page. */
+const PER_PAGE = 10;
 
 const severityDot: Record<Severity, string> = {
   critical: "bg-red-600 dark:bg-red-400",
@@ -27,19 +35,35 @@ function formatDate(published: string) {
     : undefined;
 }
 
-function groupByYear(items: Advisory[]) {
-  const sorted = [...items].sort((a, b) =>
-    b.published.localeCompare(a.published),
+/**
+ * Newest year first, and within a year the assigned CVEs come before the ones
+ * still waiting on an id, each block newest first.
+ */
+function compareAdvisories(a: Advisory, b: Advisory) {
+  return (
+    b.published.slice(0, 4).localeCompare(a.published.slice(0, 4)) ||
+    Number(!a.cve) - Number(!b.cve) ||
+    b.published.localeCompare(a.published)
   );
+}
 
+/** Expects `items` already ordered by {@link compareAdvisories}. */
+function groupByYear(items: Advisory[]) {
   const years = new Map<string, Advisory[]>();
-  for (const advisory of sorted) {
+  for (const advisory of items) {
     const year = advisory.published.slice(0, 4);
     const bucket = years.get(year);
     if (bucket) bucket.push(advisory);
     else years.set(year, [advisory]);
   }
   return [...years];
+}
+
+function chunk(items: Advisory[], size: number) {
+  const pages: Advisory[][] = [];
+  for (let i = 0; i < items.length; i += size)
+    pages.push(items.slice(i, i + size));
+  return pages;
 }
 
 function AdvisoryBody({ advisory }: { advisory: Advisory }) {
@@ -138,29 +162,82 @@ function AdvisoryRow({ advisory }: { advisory: Advisory }) {
 export function AdvisoryList() {
   // Embargoed advisories stay out of the page until they are disclosed.
   const published = advisories.filter((advisory) => !advisory.embargoed);
-  const years = groupByYear(published);
+  const sorted = [...published].sort(compareAdvisories);
+  const pages = chunk(sorted, PER_PAGE);
+
+  const [page, setPage] = useState(0);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  function goTo(next: number) {
+    setPage(next);
+    // Jump back up when the list has been scrolled past the heading.
+    const top = headingRef.current?.getBoundingClientRect().top ?? 0;
+    if (top < 0) headingRef.current?.scrollIntoView();
+  }
 
   return (
     <section aria-labelledby="advisories">
-      <h2 id="advisories" className="text-sm font-medium">
+      <h2 ref={headingRef} id="advisories" className="text-sm font-medium">
         Published Security Advisories
       </h2>
 
       <Separator className="mt-3" />
 
-      {years.map(([year, items]) => (
-        <div key={year} className="mt-8 first:mt-6">
-          <h3 className="font-mono text-xs text-muted-foreground">{year}</h3>
-          <ul className="mt-1">
-            {items.map((advisory) => (
-              <AdvisoryRow
-                key={advisory.cve ?? advisory.ghsa}
-                advisory={advisory}
-              />
-            ))}
-          </ul>
+      {/*
+       * Every page is rendered, and the inactive ones are hidden, so the
+       * static export ships the full list rather than just the first page.
+       */}
+      {pages.map((items, index) => (
+        <div key={index} className={cn(index !== page && "hidden")}>
+          {groupByYear(items).map(([year, yearItems]) => (
+            <div key={year} className="mt-8 first:mt-6">
+              <h3 className="font-mono text-xs text-muted-foreground">
+                {year}
+              </h3>
+              <ul className="mt-1">
+                {yearItems.map((advisory) => (
+                  <AdvisoryRow
+                    key={advisory.cve ?? advisory.ghsa}
+                    advisory={advisory}
+                  />
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       ))}
+
+      {pages.length > 1 && (
+        <nav
+          aria-label="Advisory pages"
+          className="mt-8 flex items-center justify-between gap-4"
+        >
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled={page === 0}
+            onClick={() => goTo(page - 1)}
+          >
+            Previous
+          </Button>
+
+          <p
+            aria-live="polite"
+            className="font-mono text-xs text-muted-foreground"
+          >
+            Page {page + 1} of {pages.length}
+          </p>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled={page === pages.length - 1}
+            onClick={() => goTo(page + 1)}
+          >
+            Next
+          </Button>
+        </nav>
+      )}
     </section>
   );
 }
