@@ -6,7 +6,7 @@ export interface ProfileLink {
 export const profile = {
   name: "Adam Jordan",
   handle: "adamyordan",
-  bio: "Security researcher. I find and report vulnerabilities for a living 🐞",
+  bio: "Security researcher. I find and report vulnerabilities for living 🐞",
   siteUrl: "https://adamyordan.github.io",
   links: [
     { label: "GitHub", href: "https://github.com/adamyordan" },
