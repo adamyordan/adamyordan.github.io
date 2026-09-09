@@ -35,6 +35,19 @@ export interface Advisory {
  */
 export const advisories: Advisory[] = [
   {
+    ghsa: "GHSA-xr4h-j7cg-q8pc",
+    title: "SQL injection in graph query via unsanitized dailyNoteSavePath",
+    product: "SiYuan",
+    pkg: "github.com/siyuan-note/siyuan",
+    ecosystem: "Go",
+    severity: "high",
+    cvss: 7.5,
+    cwe: ["CWE-89"],
+    published: "2026-09-08",
+    url: "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-xr4h-j7cg-q8pc",
+    cvePending: true,
+  },
+  {
     ghsa: "GHSA-84qv-22q6-x82r",
     title: "Cross-user credential theft via Login Flow v2 provisioning",
     product: "Nextcloud MCP Server",
