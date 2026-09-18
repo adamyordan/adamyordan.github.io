@@ -35,6 +35,20 @@ export interface Advisory {
  */
 export const advisories: Advisory[] = [
   {
+    ghsa: "GHSA-rv32-v8hf-rxqg",
+    title:
+      "Unauthenticated remote denial of service via sdkType in the pre-auth CHALLENGE message",
+    product: "deepstream.io",
+    pkg: "@deepstream/server",
+    ecosystem: "npm",
+    severity: "high",
+    cvss: 7.5,
+    cwe: ["CWE-1321"],
+    published: "2026-09-11",
+    url: "https://github.com/deepstreamIO/deepstream.io/security/advisories/GHSA-rv32-v8hf-rxqg",
+    cvePending: true,
+  },
+  {
     ghsa: "GHSA-xr4h-j7cg-q8pc",
     title: "SQL injection in graph query via unsanitized dailyNoteSavePath",
     product: "SiYuan",
@@ -214,7 +228,7 @@ export const advisories: Advisory[] = [
     cvss: 8.1,
     cwe: ["CWE-94"],
     published: "2026-08-03",
-    url: "https://github.com/getgrav/grav/security/advisories/GHSA-7pgq-cr25-xvc8",
+    url: "https://github.com/advisories/GHSA-7pgq-cr25-xvc8",
   },
   {
     cve: "CVE-2026-69090",

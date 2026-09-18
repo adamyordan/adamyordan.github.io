@@ -178,7 +178,7 @@ export function AdvisoryList() {
   return (
     <section aria-labelledby="advisories">
       <h2 ref={headingRef} id="advisories" className="text-sm font-medium">
-        Published Security Advisories
+        Security Advisory Credits
       </h2>
 
       <Separator className="mt-3" />
