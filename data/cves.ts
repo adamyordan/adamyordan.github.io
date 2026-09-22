@@ -21,6 +21,8 @@ export interface Advisory {
   url?: string;
   /** True when credited alongside other reporters. */
   coCredited?: boolean;
+  /** Team the credit was filed under, e.g. "Team Orca". */
+  team?: string;
   /** Advisory is public but no CVE has been assigned yet. */
   cvePending?: boolean;
   /** Still under embargo — kept here for the record, but not rendered. */
@@ -34,6 +36,33 @@ export interface Advisory {
  * To add one, copy an entry below and fill in what is public.
  */
 export const advisories: Advisory[] = [
+  {
+    ghsa: "GHSA-r7gr-2xm2-23wf",
+    title:
+      "Heap out-of-bounds read in alpha compositing via mismatched per-channel bit depths",
+    product: "libheif",
+    pkg: "strukturag/libheif",
+    ecosystem: "C/C++",
+    severity: "moderate",
+    cwe: ["CWE-125"],
+    published: "2026-09-21",
+    url: "https://github.com/strukturag/libheif/security/advisories/GHSA-r7gr-2xm2-23wf",
+    team: "Team Orca",
+    cvePending: true,
+  },
+  {
+    ghsa: "GHSA-7pwf-qh74-p35w",
+    title: "Caller-configured security limits not enforced for MINI-box parsing",
+    product: "libheif",
+    pkg: "strukturag/libheif",
+    ecosystem: "C/C++",
+    severity: "low",
+    cvss: 3.7,
+    published: "2026-09-21",
+    url: "https://github.com/strukturag/libheif/security/advisories/GHSA-7pwf-qh74-p35w",
+    team: "Team Orca",
+    cvePending: true,
+  },
   {
     ghsa: "GHSA-rv32-v8hf-rxqg",
     title:

@@ -72,6 +72,7 @@ function AdvisoryBody({ advisory }: { advisory: Advisory }) {
     advisory.ecosystem,
     formatDate(advisory.published),
     advisory.coCredited ? "co-credited" : undefined,
+    advisory.team ? `as ${advisory.team}` : undefined,
   ].filter(Boolean);
 
   return (
