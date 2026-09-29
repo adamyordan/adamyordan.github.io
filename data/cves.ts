@@ -78,6 +78,7 @@ export const advisories: Advisory[] = [
     cvePending: true,
   },
   {
+    cve: "CVE-2026-100644",
     ghsa: "GHSA-xr4h-j7cg-q8pc",
     title: "SQL injection in graph query via unsanitized dailyNoteSavePath",
     product: "SiYuan",
@@ -88,7 +89,6 @@ export const advisories: Advisory[] = [
     cwe: ["CWE-89"],
     published: "2026-09-08",
     url: "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-xr4h-j7cg-q8pc",
-    cvePending: true,
   },
   {
     ghsa: "GHSA-84qv-22q6-x82r",
