@@ -213,6 +213,7 @@ export const advisories: Advisory[] = [
     embargoed: true,
   },
   {
+    cve: "CVE-2026-104460",
     ghsa: "GHSA-4333-x9p4-8xj7",
     title:
       "Unauthenticated blind SQL injection via unescaped Bazar list option id",
@@ -224,7 +225,6 @@ export const advisories: Advisory[] = [
     cwe: ["CWE-89"],
     published: "2026-09-01",
     url: "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-4333-x9p4-8xj7",
-    cvePending: true,
   },
   {
     cve: "CVE-2026-79753",
