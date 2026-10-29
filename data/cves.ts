@@ -242,8 +242,17 @@ export const advisories: Advisory[] = [
   },
   {
     cve: "CVE-2026-79753",
+    ghsa: "GHSA-jx7q-cpg6-669g",
+    title:
+      "Unauthenticated OS command injection in the dashboard via the function name on the GET /api/functions read path",
     product: "Nuclio",
-    published: "2026",
+    pkg: "github.com/nuclio/nuclio",
+    ecosystem: "Go",
+    severity: "critical",
+    cvss: 10,
+    cwe: ["CWE-78"],
+    published: "2026-10-20",
+    url: "https://github.com/nuclio/nuclio/security/advisories/GHSA-jx7q-cpg6-669g",
   },
   {
     cve: "CVE-2026-69222",
