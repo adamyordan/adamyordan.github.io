@@ -37,6 +37,20 @@ export interface Advisory {
  */
 export const advisories: Advisory[] = [
   {
+    cve: "CVE-2026-115886",
+    ghsa: "GHSA-2wqp-q3c6-ccj5",
+    title:
+      "SSRF on unauthenticated servers via third-party scorer kwargs in the scorer invoke, register, and GenAI evaluate endpoints",
+    product: "MLflow",
+    pkg: "mlflow",
+    ecosystem: "pip",
+    severity: "moderate",
+    cvss: 6.5,
+    cwe: ["CWE-470", "CWE-918"],
+    published: "2026-10-23",
+    url: "https://github.com/mlflow/mlflow/security/advisories/GHSA-2wqp-q3c6-ccj5",
+  },
+  {
     ghsa: "GHSA-r7gr-2xm2-23wf",
     title:
       "Heap out-of-bounds read in alpha compositing via mismatched per-channel bit depths",
